@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="488d9881-f244-4c64-8c94-ef2097a019f9" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="PrintHello" doc:id="deeac97e-502f-41f9-a6cb-bebcbb567671" >
+		<http:listener doc:name="Listener" doc:id="ee802dc1-a861-491e-8067-0672637d84ba" config-ref="HTTP_Listener_config" path="/cicd"/>
+		<set-payload value='#["Hello Everyone"]' doc:name="Payload" doc:id="4f6dc23a-51f6-46b4-b92e-bc75126e0ec1" />
+	</flow>
+</mule>
